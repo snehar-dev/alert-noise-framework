@@ -1,6 +1,6 @@
 # Alert Noise Reduction Framework
 
-A vendor-agnostic toolkit for analyzing and reducing alert fatigue in production monitoring systems.
+A production-tested toolkit for analyzing and reducing alert fatigue in monitoring systems.
 
 ## Overview
 
