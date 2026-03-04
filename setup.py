@@ -1,9 +1,7 @@
 """
 Alert Noise Analyzer - Setup Configuration
-
-A vendor-agnostic toolkit for analyzing and reducing alert fatigue in monitoring systems.
+A production-tested toolkit for analyzing and reducing alert fatigue in monitoring systems.
 """
-
 from setuptools import setup, find_packages
 from pathlib import Path
 
@@ -14,18 +12,18 @@ long_description = readme_file.read_text() if readme_file.exists() else ""
 setup(
     name="alert-noise-analyzer",
     version="1.0.0",
-    author="Your Name",  # UPDATE THIS
-    author_email="your.email@example.com",  # UPDATE THIS
+    author="Sneha",
+    author_email="sneha.17.r@gmail.com",
     description="Vendor-agnostic toolkit for analyzing and reducing alert fatigue",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/YOUR-USERNAME/alert-noise-framework",  # UPDATE THIS
+    url="https://github.com/snehar-dev/alert-noise-framework",
     
-    packages=find_packages(),
     py_modules=[
         'alert_analyzer',
         'generate_report',
-        'generate_sample_data',
+        'cli',
+        'generator',
     ],
     
     classifiers=[
@@ -60,7 +58,8 @@ setup(
     
     entry_points={
         'console_scripts': [
-            'alert-noise=alert-noise-cli:main',
+            'analyze-alerts=cli:main',
+            'generate-alerts=generator:main',
         ],
     },
     
