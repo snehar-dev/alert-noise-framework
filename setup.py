@@ -1,6 +1,6 @@
 """
 Alert Noise Analyzer - Setup Configuration
-A production-tested toolkit for analyzing and reducing alert fatigue in monitoring systems.
+A production-tested framework for analyzing and reducing alert fatigue in monitoring systems.
 """
 from setuptools import setup, find_packages
 from pathlib import Path
@@ -14,7 +14,7 @@ setup(
     version="1.0.0",
     author="Sneha",
     author_email="sneha.17.r@gmail.com",
-    description="Vendor-agnostic toolkit for analyzing and reducing alert fatigue",
+    description="Production-tested framework for analyzing and reducing alert fatigue in monitoring systems",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/snehar-dev/alert-noise-framework",
