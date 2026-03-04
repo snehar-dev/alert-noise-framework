@@ -1,6 +1,6 @@
 # Alert Noise Reduction Framework
 
-A production-tested toolkit for analyzing and reducing alert fatigue in monitoring systems.
+A production-tested framework for analyzing and reducing alert fatigue in monitoring systems.
 
 ## Overview
 
@@ -29,7 +29,7 @@ This framework addresses these issues through data-driven analysis and actionabl
 
 **Methodology validated in production:**
 
-At SAP Ariba (enterprise SaaS platform serving 5M+ users across 70+ microservices):
+In a large-scale enterprise SaaS environment (70+ microservices, 5M+ users):
 - **Reduced alert volume:** 200+ alerts/day → 76 alerts/day (62% reduction)
 - **Time savings:** 52 hours/month in alert triage
 - **MTTR improvement:** ~30% faster incident resolution
@@ -40,7 +40,6 @@ The techniques demonstrated here were developed and proven in that production en
 ## Quick Start
 
 ### Installation
-
 ```bash
 # Clone repository
 git clone https://github.com/snehar-dev/alert-noise-framework
@@ -48,23 +47,18 @@ cd alert-noise-framework
 
 # Install package
 pip install -e .
-
-# Verify installation
-alert-noise --version
 ```
 
 ### Generate Sample Data
-
 ```bash
 # Generate 30 days of synthetic alert data
-alert-noise generate --days 30 --noise-level high --output sample.csv
+generate-alerts --days 30 --noise high --output sample.csv
 ```
 
 ### Analyze Alerts
-
 ```bash
 # Analyze alerts and generate report
-alert-noise analyze --input sample.csv --output ./report --report
+analyze-alerts --input sample.csv --output ./report
 
 # Open the generated report
 open report/alert_noise_report.html
@@ -81,12 +75,11 @@ This repository includes synthetic alert data for demonstration purposes. The da
 - **Alert storms:** Cascading failures from single root cause (e.g., database failure → API errors → queue backup)
 - **Low-value noise:** Informational alerts never acted upon (test alerts, success notifications, premature warnings)
 
-The synthetic data generator is available in `generate_sample_data.py` and can be configured for different noise levels and time periods.
+The synthetic data generator is available and can be configured for different noise levels and time periods.
 
 ### Using Your Own Data
 
 The framework accepts CSV exports from any monitoring system. Required columns:
-
 ```csv
 timestamp,alert_name,severity,status,source,duration_minutes
 2026-02-01 10:30:00,cpu-high,critical,firing,prometheus,45
@@ -177,10 +170,8 @@ Identifies alerts with incorrect severity levels based on response patterns.
 ### Prioritized Action Plan
 - Ranked recommendations by impact
 - Implementation roadmap (weekly phases)
-- Before/after simulation results
 
 ### Sample Output
-
 ```
 Current State: 200 alerts/day
 Recommended: 85 alerts/day
@@ -198,41 +189,34 @@ Noise Breakdown:
 ## CLI Usage
 
 ### Analyze Command
-
 ```bash
-# Basic analysis
-alert-noise analyze --input alerts.csv --output ./results
+# Basic analysis with report generation
+analyze-alerts --input alerts.csv --output ./results
 
-# With HTML report generation
-alert-noise analyze --input alerts.csv --output ./results --report
-
-# Short form
-alert-noise analyze -i alerts.csv -o ./results -r
+# With verbose output
+analyze-alerts --input alerts.csv --output ./results --verbose
 ```
 
 ### Generate Command
-
 ```bash
 # Generate 30 days of high-noise data
-alert-noise generate --days 30 --noise-level high --output sample.csv
+generate-alerts --days 30 --noise high --output sample.csv
 
 # Generate 60 days of medium-noise data
-alert-noise generate --days 60 --noise-level medium --output test.csv
+generate-alerts --days 60 --noise medium --output test.csv
 
 # Generate 7 days of low-noise data
-alert-noise generate -d 7 -n low -o week.csv
+generate-alerts --days 7 --noise low --output week.csv
 ```
 
 ## Architecture
-
 ```
 alert-noise-framework/
 ├── alert_analyzer.py          # Core analysis engine
 ├── generate_report.py         # HTML report generator
-├── generate_sample_data.py    # Synthetic data generator
-├── alert-noise-cli.py         # Command-line interface
+├── generator.py               # Synthetic data generator
+├── cli.py                     # Command-line interface
 ├── setup.py                   # Package configuration
-├── requirements.txt           # Dependencies
 ├── README.md                  # Documentation
 └── sample_data.csv           # Example dataset
 ```
@@ -246,19 +230,16 @@ alert-noise-framework/
 ## Development
 
 ### Install Development Dependencies
-
 ```bash
 pip install -e ".[dev]"
 ```
 
 ### Run Tests
-
 ```bash
 pytest tests/
 ```
 
 ### Code Quality
-
 ```bash
 # Format code
 black .
@@ -310,9 +291,9 @@ MIT License - see LICENSE file for details
 
 ## Author
 
-**Your Name**  
+**Sneha**  
 Site Reliability Engineer  
-[GitHub](https://github.com/snehar-dev) | [LinkedIn](https://linkedin.com/in/YOUR-PROFILE)
+[GitHub](https://github.com/snehar-dev)
 
 ## Acknowledgments
 
@@ -320,6 +301,6 @@ Developed based on real-world SRE experience at enterprise scale. Special thanks
 
 ---
 
-**Questions or feedback?** Open an issue or reach out via LinkedIn.
+**Questions or feedback?** Open an issue or reach out via GitHub.
 
 **Found this useful?** Star the repository and share with your SRE team!
