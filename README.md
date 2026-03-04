@@ -43,7 +43,7 @@ The techniques demonstrated here were developed and proven in that production en
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR-USERNAME/alert-noise-framework
+git clone https://github.com/snehar-dev/alert-noise-framework
 cd alert-noise-framework
 
 # Install package
@@ -312,7 +312,7 @@ MIT License - see LICENSE file for details
 
 **Your Name**  
 Site Reliability Engineer  
-[GitHub](https://github.com/YOUR-USERNAME) | [LinkedIn](https://linkedin.com/in/YOUR-PROFILE)
+[GitHub](https://github.com/snehar-dev) | [LinkedIn](https://linkedin.com/in/YOUR-PROFILE)
 
 ## Acknowledgments
 
